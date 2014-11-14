@@ -24,7 +24,7 @@ build: init pkgs
 
 .PHONY: pkgs
 pkgs:
-	for p in $(PKGS); do go install $$p; done
+	for p in $(PKGS); do go get $$p; done
 
 test: clean
 ifdef TEST_PACKAGE
