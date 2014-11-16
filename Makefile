@@ -11,6 +11,12 @@ PKGS := github.com/cespare/go-apachelog
 PKGS += github.com/crowdmob/goamz/aws
 PKGS += github.com/crowdmob/goamz/s3
 
+#GOOS=linux
+#export GOOS
+
+CGO_ENABLED=0
+export CGO_ENABLED
+
 all: build
 
 clean:
@@ -20,7 +26,7 @@ init: clean
 	@mkdir bin
 
 build: init pkgs
-	@go build -o bin/registry registry.go
+	@go build -a -tags netgo -ldflags '-s' -o bin/registry registry.go
 
 .PHONY: pkgs
 pkgs:
