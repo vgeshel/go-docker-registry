@@ -10,7 +10,7 @@ set -evx
 
 docker run -it --name $scratch --entrypoint /bin/true $source_image
 
-dir=$(mktemp -d -t scratch)
+dir=$(mktemp -d)
 
 pushd $dir
 
